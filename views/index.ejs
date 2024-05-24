@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Items</h1>
+    <a href="/items/new">Add New Item</a>
+    <ul>
+        <% items.forEach(item => { %>
+            <li>
+                <a href="/items/<%= item._id %>"><%= item.name %></a>
+                <form action="/items/<%= item._id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
